@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Card, Input, Icon, Button, Text } from 'react-native-elements';
+import { Card, Button, Text } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import * as actions from '../actions';
-import { Spinner } from './common';
+import { Spinner, LabelInput } from './common';
 
 
 class LoginForm extends Component {
@@ -46,16 +46,10 @@ class LoginForm extends Component {
             <Card
                 title="Authentication"
             >
-                <Input
+                <LabelInput
+                    label='Email'
                     placeholder='user@gmail.com'
-                    leftIcon={
-                        <Icon 
-                            name='email' 
-                            size={15}
-                            color='gray'
-                        />
-                    }
-                    containerStyle={{ width: '100%' }}
+                    iconName='email'
                     keyboardType="email-address"
                     returnKeyType="next"
                     autoFocus
@@ -64,17 +58,11 @@ class LoginForm extends Component {
                     onChangeText={this.onEmailChange.bind(this)}
                     value={this.props.email}
                 />
-                <Input
+                <LabelInput
+                    label='Password'
                     placeholder='password'
                     secureTextEntry
-                    leftIcon={
-                        <Icon 
-                            name='lock'  
-                            size={15}
-                            color='gray'
-                        />
-                    }
-                    containerStyle={{ width: '100%' }}
+                    iconName='lock'
                     onChangeText={this.onPasswordChange.bind(this)}
                     value={this.props.password}
                 />
