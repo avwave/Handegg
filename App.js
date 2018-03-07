@@ -2,12 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Header } from 'react-native-elements';
 import ReduxThunk from 'redux-thunk';
 
 import firebase from 'firebase';
 import reducers from './src/reducers';
-import LoginForm from './src/components/LoginForm';
+import Router from './src/Router';
+
 
 export default class App extends React.Component {
     
@@ -29,12 +29,7 @@ export default class App extends React.Component {
         return (
             <Provider store={store}>
                 <View style={{ flex: 1 }}>
-                    <Header
-                        centerComponent={{ text: 'HandEgg', style: { color: '#fff' } }}
-                        rightComponent={{ icon: 'home', color: '#fff' }}
-                        statusBarProps={{ barStyle: 'light-content' }}
-                    />
-                    <LoginForm />
+                    <Router />
                 </View>
             </Provider>
         );
