@@ -1,14 +1,21 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Card, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { memberUpdate, memberCreate } from '../actions';
+import { memberUpdate, memberSave } from '../actions';
 import MemberForm from './MemberForm';
 
-class MemberCreate extends Component {
+class MemberEdit extends Component {
+    componentWillMount() {
+        _.each(this.props.member, (value, prop) => {
+            this.props.memberUpdate({ prop, value });
+        });
+    }
+
     onButtonPress() {
         const { name, position, stats1, stats2, stats3 } = this.props;
-        this.props.memberCreate({ name, position, stats1, stats2, stats3 });
+        this.props.memberSave({ name, position, stats1, stats2, stats3, uid: this.props.member.uid });
     }
     
     render() {
@@ -17,7 +24,7 @@ class MemberCreate extends Component {
                 <Card>
                     <MemberForm {...this.props} />
                     <Button
-                        text='Create'
+                        text='Save Changes'
                         buttonStyle={{ 
                             width: '100%', 
                             marginTop: 10
@@ -36,6 +43,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    memberUpdate, 
-    memberCreate 
-})(MemberCreate);
+    memberUpdate,
+    memberSave
+})(MemberEdit);

@@ -3,6 +3,7 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import MemberList from './components/MemberList';
 import MemberCreate from './components/MemberCreate';
+import MemberEdit from './components/MemberEdit';
 
 const RouterComponent = () => {
     return (
@@ -23,10 +24,10 @@ const RouterComponent = () => {
                         key='login'
                         component={LoginForm}
                         title='Please Login'
-                        
+                        initial
                     />
                 </Scene>
-                <Scene key='main' initial>
+                <Scene key='main'>
                     <Scene
                         key='memberList'
                         component={MemberList}
@@ -40,8 +41,12 @@ const RouterComponent = () => {
                         component={MemberCreate}
                         title='Create Member'
                     />
+                    <Scene
+                        key='memberEdit'
+                        component={MemberEdit}
+                        title='Edit Member'
+                    />
                 </Scene>
-
             </Scene>
         </Router>
     );

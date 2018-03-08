@@ -3,7 +3,6 @@ import { Header } from 'react-native-elements';
 
 class Navbar extends Component {
     render() {
-        console.log(this.props);
         return (
             <Header
                 centerComponent={{ text: this.props.title, style: { color: '#fff' } }}
