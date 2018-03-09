@@ -1,6 +1,7 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
+import OTP from './components/OTP';
 import MemberList from './components/MemberList';
 import MemberCreate from './components/MemberCreate';
 import MemberEdit from './components/MemberEdit';
@@ -24,6 +25,13 @@ const RouterComponent = () => {
                         key='login'
                         component={LoginForm}
                         title='Please Login'
+                    />
+                </Scene>
+                <Scene key='authOTP' initial>
+                    <Scene
+                        key='signup'
+                        component={OTP}
+                        title='Authenticate'
                         initial
                     />
                 </Scene>

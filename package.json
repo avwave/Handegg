@@ -20,8 +20,10 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "expo": "^25.0.0",
     "firebase": "^4.10.1",
+    "http-signature": "^1.2.0",
     "lodash": "^4.17.5",
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",

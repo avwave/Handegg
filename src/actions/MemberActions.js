@@ -12,30 +12,27 @@ export const memberUpdate = ({ prop, value }) => {
 export const memberCreate = ({ name, position, stats1, stats2, stats3 }) => {
     const { currentUser } = firebase.auth();
 
-    return (dispatch) => {
-        firebase.database().ref(`/users/${currentUser.uid}/members`)
-            .push({ name, position, stats1, stats2, stats3 })
-            .then(() => {
-                dispatch({
-                    type: MEMBER_CREATE
-                });
-                Actions.pop();
-            });
+    return async (dispatch) => {
+        await firebase.database().ref(`/users/${currentUser.uid}/members`)
+            .push({ name, position, stats1, stats2, stats3 });
+        dispatch({
+            type: MEMBER_CREATE
+        });
+        Actions.pop();
     };
 };
 
 export const memberSave = ({ name, position, stats1, stats2, stats3 , uid}) => {
     const { currentUser } = firebase.auth();
 
-    return (dispatch) => {
-        firebase.database().ref(`/users/${currentUser.uid}/members/${uid}`)
+    return async (dispatch) => {
+        await firebase.database().ref(`/users/${currentUser.uid}/members/${uid}`)
             .set({ name, position, stats1, stats2, stats3 })
-            .then(() => {
-                dispatch({
-                    type: MEMBER_SAVE_SUCCESS
-                });
-                Actions.pop();
-            });
+
+        dispatch({
+            type: MEMBER_SAVE_SUCCESS
+        });
+        Actions.pop();
     };
 };
 

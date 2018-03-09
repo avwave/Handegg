@@ -6,5 +6,8 @@
 		{
 			"path": "C:\\repos\\teamstercli"
 		}
-	]
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }
