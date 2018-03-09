@@ -5,6 +5,7 @@ import OTP from './components/OTP';
 import MemberList from './components/MemberList';
 import MemberCreate from './components/MemberCreate';
 import MemberEdit from './components/MemberEdit';
+import StartScreen from './components/StartScreen';
 
 const RouterComponent = () => {
     return (
@@ -20,6 +21,11 @@ const RouterComponent = () => {
                 key='root'
                 hideNavBar
             >
+                <Scene 
+                    key='start' 
+                    component={StartScreen}
+                    initial
+                />
                 <Scene key='auth'>
                     <Scene
                         key='login'
@@ -27,7 +33,7 @@ const RouterComponent = () => {
                         title='Please Login'
                     />
                 </Scene>
-                <Scene key='authOTP' initial>
+                <Scene key='authOTP'>
                     <Scene
                         key='signup'
                         component={OTP}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Button, Text } from 'react-native-elements';
-import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 
+import { connect } from 'react-redux';
 import { emailChanged, phoneChanged, createUserOTP } from '../actions';
 import { Spinner, LabelInput } from './common';
 
@@ -47,7 +47,7 @@ class SignupOTP extends Component {
     render() {
         return (
             <Card
-                title="Signup"
+                title="Sign Up" 
             >
                 <LabelInput
                     label='Phone'

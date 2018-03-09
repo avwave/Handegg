@@ -16,3 +16,7 @@ export const SIGNUP_OTP_SUCCESS = 'signup_otp_success';
 export const CODE_CHANGED_OTP = 'otp_code_changed';
 export const VERIFY_OTP_SUCCESS = 'verify_otp_success';
 export const VERIFY_OTP_FAIL = 'verify_otp_fail';
+
+export const AUTH_TOKEN_EXISTS = 'auth_token_exists';
+export const NO_AUTH_TOKEN_EXISTS = 'no_auth_token_exists';
+

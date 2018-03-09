@@ -22,12 +22,12 @@ export const memberCreate = ({ name, position, stats1, stats2, stats3 }) => {
     };
 };
 
-export const memberSave = ({ name, position, stats1, stats2, stats3 , uid}) => {
+export const memberSave = ({ name, position, stats1, stats2, stats3, uid }) => {
     const { currentUser } = firebase.auth();
 
     return async (dispatch) => {
         await firebase.database().ref(`/users/${currentUser.uid}/members/${uid}`)
-            .set({ name, position, stats1, stats2, stats3 })
+            .set({ name, position, stats1, stats2, stats3 });
 
         dispatch({
             type: MEMBER_SAVE_SUCCESS
