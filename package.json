@@ -28,6 +28,7 @@
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-action-button": "^2.8.4",
+    "react-native-complete-flatlist": "^1.1.7",
     "react-native-elements": "1.0.0-beta2",
     "react-native-fab": "^1.0.6",
     "react-native-keyboard-aware-scroll-view": "^0.4.4",

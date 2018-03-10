@@ -3463,6 +3463,10 @@ hawk@~6.0.2:
     hoek "4.x.x"
     sntp "2.x.x"
 
+highlight-words-core@^1.0.3:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.0.tgz#232bec301cbf2a4943d335dc748ce70e9024f3b1"
+
 hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
@@ -5886,7 +5890,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -6046,6 +6050,13 @@ react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
 
+react-native-complete-flatlist@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/react-native-complete-flatlist/-/react-native-complete-flatlist-1.1.7.tgz#e8ac11af15b7cdad18350ef9f3c459855b4a481b"
+  dependencies:
+    prop-types "^15.5.10"
+    react-native-highlight-words "git+https://github.com/fattahmuhyiddeen/react-native-highlight-words#master"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -6084,6 +6095,13 @@ react-native-gesture-handler@1.0.0-alpha.39:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
+
+"react-native-highlight-words@git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#master":
+  version "1.0.1"
+  resolved "git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#6f44d3e95d813d351d07bbadea0001b326a7b86e"
+  dependencies:
+    highlight-words-core "^1.0.3"
+    prop-types "^15.5.7"
 
 react-native-iphone-x-helper@^1.0.1:
   version "1.0.2"

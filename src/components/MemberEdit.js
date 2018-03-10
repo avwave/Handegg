@@ -21,6 +21,7 @@ class MemberEdit extends Component {
     onTransferPress = () => {
         console.log(this.props);
     }
+    
     render() {
         return (
             <KeyboardAwareScrollView extraScrollHeight={100} enableOnAndroid keyboardShouldPersistTaps='handled'>

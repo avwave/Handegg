@@ -85,14 +85,34 @@ export const createUserOTP = ({ phone, email }) => {
         try {
             await axios.post(`${ROOT_URL}/createUser`, { phone, email });
             await axios.post(`${ROOT_URL}/requestOTP`, { phone });
-            
             dispatch({
-                type: SIGNUP_OTP_SUCCESS
+                type: SIGNUP_OTP_FAIL,
+                payload: 'Code sent to phone number'
             });
         } catch (err) {
-            console.log(err);
+            console.log(err.response.data.error);
             dispatch({
-                type: SIGNUP_OTP_FAIL
+                type: SIGNUP_OTP_FAIL,
+                payload: err.response.data.error
+            });
+        }
+    };
+};
+
+export const requestOTP = ({ phone }) => {
+    return async (dispatch) => {
+        dispatch({ type: LOGIN_USER });
+        try {
+            await axios.post(`${ROOT_URL}/requestOTP`, { phone });
+            dispatch({
+                type: SIGNUP_OTP_FAIL,
+                payload: 'Code sent to phone number'
+            });
+        } catch (err) {
+            console.log(err.response.data.error);
+            dispatch({
+                type: SIGNUP_OTP_FAIL,
+                payload: err
             });
         }
     };

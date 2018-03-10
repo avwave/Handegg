@@ -34,7 +34,7 @@ export default (state = INITIAL_STATE, action) => {
         case SIGNUP_OTP_SUCCESS:
             return { ...state, loading: false, error: '' };
         case SIGNUP_OTP_FAIL:
-            return { ...state, loading: false, error: 'Signup Failed' };
+            return { ...state, loading: false, error: action.payload };
         case VERIFY_OTP_SUCCESS:
             return { ...state, loading: false, error: '' };
         case VERIFY_OTP_FAIL:

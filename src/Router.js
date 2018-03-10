@@ -3,6 +3,7 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import { Icon, Button } from 'react-native-elements';
 import LoginForm from './components/LoginForm';
 import OTP from './components/OTP';
+import SignupOTP from './components/SignupOTP';
 import MemberList from './components/MemberList';
 import MemberCreate from './components/MemberCreate';
 import MemberEdit from './components/MemberEdit';
@@ -42,6 +43,13 @@ const RouterComponent = () => {
                         component={OTP}
                         title='Authenticate'
                         initial
+                        rightTitle='Sign up'
+                        onRight={() => Actions.newsignup()}
+                    />
+                    <Scene
+                        key='newsignup'
+                        component={SignupOTP}
+                        title='New Account'
                     />
                 </Scene>
                 <Scene 
