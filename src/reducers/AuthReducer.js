@@ -1,7 +1,8 @@
 import { 
     EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER,
     PHONE_CHANGED_OTP, SIGNUP_OTP_FAIL, SIGNUP_OTP_SUCCESS, 
-    CODE_CHANGED_OTP, VERIFY_OTP_FAIL, VERIFY_OTP_SUCCESS
+    CODE_CHANGED_OTP, VERIFY_OTP_FAIL, VERIFY_OTP_SUCCESS,
+    LOGOUT_SUCCESS, LOGOUT_FAIL
 } from '../actions/types';
 
 const INITIAL_STATE = { 
@@ -38,6 +39,11 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, loading: false, error: '' };
         case VERIFY_OTP_FAIL:
             return { ...state, loading: false, error: 'Code invalid', code: '' };
+        case LOGOUT_SUCCESS:
+            return { ...state, ...INITIAL_STATE };
+        case LOGOUT_FAIL:
+            return { ...state, ...INITIAL_STATE };
+        
         default:
             return state;
     }

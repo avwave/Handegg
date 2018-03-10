@@ -34,7 +34,7 @@ class SignupOTP extends Component {
         }
         return (
             <Button
-                text='Submit'
+                text='Submit' 
                 buttonStyle={{ 
                     width: '100%', 
                     marginTop: 10
@@ -47,7 +47,7 @@ class SignupOTP extends Component {
     render() {
         return (
             <Card
-                title="Sign Up" 
+                title="Sign Up"
             >
                 <LabelInput
                     label='Phone'

@@ -7,7 +7,7 @@ import {
     EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER,
     PHONE_CHANGED_OTP, SIGNUP_OTP_FAIL, SIGNUP_OTP_SUCCESS, 
     CODE_CHANGED_OTP, VERIFY_OTP_FAIL, VERIFY_OTP_SUCCESS,
-    NO_AUTH_TOKEN_EXISTS
+    NO_AUTH_TOKEN_EXISTS, LOGOUT_SUCCESS, LOGOUT_FAIL
 } from './types';
 
 const ROOT_URL = 'https://us-central1-teamsters-d00e2.cloudfunctions.net';
@@ -125,11 +125,34 @@ export const checkUserToken = () => {
         let token = await AsyncStorage.getItem('auth_token');
         if (token) {
             console.log('tokes get');
-            let user = await firebase.auth().signInWithCustomToken(token);
-            loginUserSuccess(dispatch, user);
+            try {
+                let user = await firebase.auth().signInWithCustomToken(token);
+                loginUserSuccess(dispatch, user);
+            } catch (err) {
+                console.log(err);
+                authTokenFail(dispatch);    
+            }
         } else {
             console.log('aww tokes :<');
             authTokenFail(dispatch);
+        }
+    };
+};
+
+export const logoutUser = () => {
+    return async (dispatch) => {
+        try {
+            await firebase.auth().signOut();
+            Actions.reset('authOTP');
+            await AsyncStorage.removeItem('auth_token');
+            dispatch({
+                type: LOGOUT_SUCCESS
+            });
+        } catch (err) {
+            console.log(err);
+            dispatch({
+                type: LOGOUT_FAIL
+            });
         }
     };
 };

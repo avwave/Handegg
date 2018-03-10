@@ -14,8 +14,8 @@ class StartScreen extends Component {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <View style={{ height: 100 }}>
-                    <Text>Reticulating splines....</Text>
+                <View style={{ height: 80 }}>
+                    <Text>Graduating cylinders..</Text>
                     <Spinner size='large' />
                 </View>
                 

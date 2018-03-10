@@ -13,23 +13,34 @@ class MemberEdit extends Component {
         });
     }
 
-    onButtonPress() {
+    onButtonPress = () => {
         const { name, position, stats1, stats2, stats3 } = this.props;
         this.props.memberSave({ name, position, stats1, stats2, stats3, uid: this.props.member.uid });
     }
     
+    onTransferPress = () => {
+        console.log(this.props);
+    }
     render() {
         return (
             <KeyboardAwareScrollView extraScrollHeight={100} enableOnAndroid keyboardShouldPersistTaps='handled'>
                 <Card>
                     <MemberForm {...this.props} />
                     <Button
+                        text='Transfer player...'
+                        buttonStyle={{ 
+                            width: '100%', 
+                            marginTop: 10
+                        }}
+                        onPress={this.onTransferPress}
+                    />
+                    <Button
                         text='Save Changes'
                         buttonStyle={{ 
                             width: '100%', 
                             marginTop: 10
                         }}
-                        onPress={this.onButtonPress.bind(this)}
+                        onPress={this.onButtonPress}
                     />
                 </Card>
             </KeyboardAwareScrollView>

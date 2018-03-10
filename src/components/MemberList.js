@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import ActionButton from 'react-native-action-button';
+
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import _ from 'lodash';
@@ -24,11 +26,17 @@ class MemberList extends Component {
 
     render() {
         return (
-            <FlatList
-                data={this.props.members}
-                renderItem={this.renderRow}
-                keyExtractor={item => item.uid}
-            />
+            <View style={{ flex: 1 }}>
+                <FlatList
+                    data={this.props.members}
+                    renderItem={this.renderRow}
+                    keyExtractor={item => item.uid}
+                />
+                <ActionButton
+                    buttonColor="#2089dc"
+                    onPress={() => { Actions.memberCreate(); }}
+                />
+            </View>
         );
     }
 }

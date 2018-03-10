@@ -14,7 +14,15 @@ export const memberCreate = ({ name, position, stats1, stats2, stats3 }) => {
 
     return async (dispatch) => {
         await firebase.database().ref(`/users/${currentUser.uid}/members`)
-            .push({ name, position, stats1, stats2, stats3 });
+            .push({
+                name,
+                position,
+                stats1,
+                stats2,
+                stats3,
+                creatorID: currentUser.uid,
+                createdOn: firebase.database.ServerValue.TIMESTAMP
+            });
         dispatch({
             type: MEMBER_CREATE
         });
@@ -27,7 +35,15 @@ export const memberSave = ({ name, position, stats1, stats2, stats3, uid }) => {
 
     return async (dispatch) => {
         await firebase.database().ref(`/users/${currentUser.uid}/members/${uid}`)
-            .set({ name, position, stats1, stats2, stats3 });
+            .update({
+                name,
+                position,
+                stats1,
+                stats2,
+                stats3,
+                currentOwner: currentUser.uid,
+                modifiedOn: firebase.database.ServerValue.TIMESTAMP
+            });
 
         dispatch({
             type: MEMBER_SAVE_SUCCESS
@@ -38,7 +54,6 @@ export const memberSave = ({ name, position, stats1, stats2, stats3, uid }) => {
 
 export const membersFetch = () => {
     const { currentUser } = firebase.auth();
-
     return (dispatch) => {
         firebase.database().ref(`/users/${currentUser.uid}/members`)
             .on('value', snapshot => {

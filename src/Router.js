@@ -1,11 +1,13 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Icon, Button } from 'react-native-elements';
 import LoginForm from './components/LoginForm';
 import OTP from './components/OTP';
 import MemberList from './components/MemberList';
 import MemberCreate from './components/MemberCreate';
 import MemberEdit from './components/MemberEdit';
 import StartScreen from './components/StartScreen';
+import OptionsScreen from './components/OptionsScreen';
 
 const RouterComponent = () => {
     return (
@@ -20,6 +22,7 @@ const RouterComponent = () => {
             <Scene 
                 key='root'
                 hideNavBar
+                headerMode='float'
             >
                 <Scene 
                     key='start' 
@@ -41,14 +44,22 @@ const RouterComponent = () => {
                         initial
                     />
                 </Scene>
-                <Scene key='main'>
+                <Scene 
+                    key='main'
+                    
+                    renderRightButton={() => (
+                        <Button
+                            icon={<Icon name='gear' type='evilicon' color='white' />}
+                            text=''
+                            onPress={() => Actions.options()}
+                        />
+                    )}
+                >
                     <Scene
                         key='memberList'
                         component={MemberList}
                         title='Members'
-                        rightTitle="Add"
-                        onRight={() => Actions.memberCreate()}
-                        initial
+                        
                     />
                     <Scene
                         key='memberCreate'
@@ -59,6 +70,13 @@ const RouterComponent = () => {
                         key='memberEdit'
                         component={MemberEdit}
                         title='Edit Member'
+                    />
+
+                    <Scene
+                        key='options'
+                        component={OptionsScreen}
+                        title='Options'
+                        renderRightButton={null}
                     />
                 </Scene>
             </Scene>
