@@ -5,7 +5,7 @@ import { AsyncStorage } from 'react-native';
 
 import { 
     EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER,
-    PHONE_CHANGED_OTP, SIGNUP_OTP_FAIL, SIGNUP_OTP_SUCCESS, 
+    PHONE_CHANGED_OTP, SIGNUP_OTP_FAIL, 
     CODE_CHANGED_OTP, VERIFY_OTP_FAIL, VERIFY_OTP_SUCCESS,
     NO_AUTH_TOKEN_EXISTS, LOGOUT_SUCCESS, LOGOUT_FAIL
 } from './types';
@@ -112,7 +112,7 @@ export const requestOTP = ({ phone }) => {
             console.log(err.response.data.error);
             dispatch({
                 type: SIGNUP_OTP_FAIL,
-                payload: err
+                payload: err.response.data.error
             });
         }
     };

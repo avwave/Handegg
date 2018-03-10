@@ -23,3 +23,6 @@ export const NO_AUTH_TOKEN_EXISTS = 'no_auth_token_exists';
 export const LOGOUT_SUCCESS = 'logout_success';
 export const LOGOUT_FAIL = 'logout_fail';
 
+export const TRANSFER_USER_LIST_LOADED = 'user_list_loaded';
+export const TRANSFER_USER_SELECTED = 'transfer_user_selected';
+export const TRANSFER_SUCCESS = 'transfer_success';
