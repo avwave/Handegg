@@ -94,7 +94,7 @@ export const createUserOTP = ({ phone, email }) => {
             console.log(err.response.data.error);
             dispatch({
                 type: SIGNUP_OTP_FAIL,
-                payload: err.response.data.error
+                payload: err.response.data.error.message
             });
         }
     };
@@ -113,7 +113,7 @@ export const requestOTP = ({ phone }) => {
             console.log(err.response.data.error);
             dispatch({
                 type: SIGNUP_OTP_FAIL,
-                payload: err.response.data.error
+                payload: err.response.data.error.message
             });
         }
     };

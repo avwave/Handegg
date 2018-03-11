@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { SocialIcon } from 'react-native-elements';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { facebookLogin } from '../actions';
 
 class StartScreen extends Component {
@@ -10,6 +11,9 @@ class StartScreen extends Component {
     }
     onButtonPress = () => {
         this.props.facebookLogin({ initialize: false });
+    }
+    onOTPPress = () => {
+        Actions.authOTP();
     }
 
     render() {
@@ -30,6 +34,16 @@ class StartScreen extends Component {
                         loading={this.props.loading}
                         disabled={this.props.loading}
                     />
+                    <SocialIcon
+                        title='Sign In One Time Pass'
+                        button
+                        type='envelope'
+                        onPress={this.onOTPPress}
+                        loading={this.props.loading}
+                        disabled={this.props.loading}
+                        light
+                    />
+
                 </View>
             </View>
         );
