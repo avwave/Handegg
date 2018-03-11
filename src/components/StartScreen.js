@@ -67,7 +67,6 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-    console.log(state.auth)
     return {
         loading: state.auth.loading
     };

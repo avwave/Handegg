@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions';
