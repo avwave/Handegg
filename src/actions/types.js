@@ -20,6 +20,9 @@ export const VERIFY_OTP_FAIL = 'verify_otp_fail';
 export const AUTH_TOKEN_EXISTS = 'auth_token_exists';
 export const NO_AUTH_TOKEN_EXISTS = 'no_auth_token_exists';
 
+export const FB_LOGIN_SUCCESS = 'fb_login_success';
+export const FB_LOGIN_FAIL = 'fb_login_fail';
+
 export const LOGOUT_SUCCESS = 'logout_success';
 export const LOGOUT_FAIL = 'logout_fail';
 

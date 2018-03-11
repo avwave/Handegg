@@ -2,12 +2,14 @@ import firebase from 'firebase';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
+import { Facebook } from 'expo';
 
 import { 
     EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER,
     PHONE_CHANGED_OTP, SIGNUP_OTP_FAIL, 
     CODE_CHANGED_OTP, VERIFY_OTP_FAIL, VERIFY_OTP_SUCCESS,
-    NO_AUTH_TOKEN_EXISTS, LOGOUT_SUCCESS, LOGOUT_FAIL
+    NO_AUTH_TOKEN_EXISTS, LOGOUT_SUCCESS, LOGOUT_FAIL,
+    FB_LOGIN_SUCCESS, FB_LOGIN_FAIL
 } from './types';
 
 const ROOT_URL = 'https://us-central1-teamsters-d00e2.cloudfunctions.net';
@@ -162,7 +164,7 @@ export const logoutUser = () => {
     return async (dispatch) => {
         try {
             await firebase.auth().signOut();
-            Actions.reset('authOTP');
+            Actions.reset('start');
             await AsyncStorage.removeItem('auth_token');
             dispatch({
                 type: LOGOUT_SUCCESS
@@ -171,6 +173,57 @@ export const logoutUser = () => {
             console.log(err);
             dispatch({
                 type: LOGOUT_FAIL
+            });
+        }
+    };
+};
+
+const doFacebookLogin = async (dispatch) => {
+    let result = await Facebook.logInWithReadPermissionsAsync('1716874695034874', {
+        permissions: ['public_profile', 'email']
+    });
+    let { type, token } = result;
+
+    if (type === 'cancel') {
+        return dispatch({
+            type: FB_LOGIN_FAIL
+        });
+    }
+    
+    let graphAPI = await axios(`https://graph.facebook.com/v2.12/me?fields=email&access_token=${token}`);
+    let email = await graphAPI.data.email;
+    
+    await AsyncStorage.setItem('auth_token', token);
+    doLoginWithToken(token, dispatch);
+};
+
+const doLoginWithToken = async (token, dispatch) => {
+    try {
+        const credential = firebase.auth.FacebookAuthProvider.credential(token);
+        let result = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
+        dispatch({
+            type: FB_LOGIN_SUCCESS,
+            payload: token
+        });
+        loginUserSuccess(dispatch, result.user);
+    } catch (err) {
+        console.log(err)
+        await AsyncStorage.removeItem('auth_token');
+        doFacebookLogin(dispatch);    
+    }
+};
+
+export const facebookLogin = ({ initialize }) => {
+    return async (dispatch) => {
+        dispatch({ type: LOGIN_USER });
+        let token = await AsyncStorage.getItem('auth_token');
+        if (token) {
+            doLoginWithToken(token, dispatch);
+        } else if (!initialize) {
+            doFacebookLogin(dispatch);
+        } else {
+            dispatch({
+                type: FB_LOGIN_FAIL
             });
         }
     };

@@ -12,7 +12,7 @@ class OptionsScreen extends Component {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <Text>{this.props.user.email}</Text>
+                
                 <Button
                     text='Log Out'
                     onPress={this.onButtonLogout}

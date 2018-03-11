@@ -20,7 +20,7 @@ class TransferUserList extends Component {
         return (
             <ListItem
                 key={item.uid}
-                title={item.email}
+                title={item.name}
                 onPress={() => this.props.transferMember(item.uid)}
             />
         );
@@ -36,7 +36,7 @@ class TransferUserList extends Component {
                     value={this.props.searchTerm}
                 />
                 <FlatList
-                    data={this.props.users.filter(item => item.email.includes(this.props.searchTerm))}
+                    data={this.props.users.filter(item => item.name.toLowerCase().indexOf(this.props.searchTerm.toLowerCase()) > -1)}
                     renderSeparator={null}
                     renderItem={this.renderRow.bind(this)}
                     keyExtractor={(item, index) => item.uid}
