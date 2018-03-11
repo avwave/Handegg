@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Card, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { memberUpdate, memberSave } from '../actions';
 import MemberForm from './MemberForm';
 
@@ -19,7 +20,7 @@ class MemberEdit extends Component {
     }
     
     onTransferPress = () => {
-        console.log(this.props);
+        Actions.transferUserList({ member: this.props.member });
     }
     
     render() {

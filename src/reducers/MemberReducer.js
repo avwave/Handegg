@@ -1,4 +1,6 @@
-import { MEMBERS_FETCH_SUCCESS } from '../actions/types';
+import {
+    MEMBERS_FETCH_SUCCESS
+} from '../actions/types';
 
 const INITIAL_STATE = {};
 

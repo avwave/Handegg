@@ -9,6 +9,7 @@ import MemberCreate from './components/MemberCreate';
 import MemberEdit from './components/MemberEdit';
 import StartScreen from './components/StartScreen';
 import OptionsScreen from './components/OptionsScreen';
+import TransferUserList from './components/TransferUserList';
 
 const RouterComponent = () => {
     return (
@@ -78,6 +79,11 @@ const RouterComponent = () => {
                         key='memberEdit'
                         component={MemberEdit}
                         title='Edit Member'
+                    />
+                    <Scene
+                        key='transferUserList'
+                        component={TransferUserList}
+                        title='Select player to transfer to'
                     />
 
                     <Scene

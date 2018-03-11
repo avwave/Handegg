@@ -26,3 +26,5 @@ export const LOGOUT_FAIL = 'logout_fail';
 export const TRANSFER_USER_LIST_LOADED = 'user_list_loaded';
 export const TRANSFER_USER_SELECTED = 'transfer_user_selected';
 export const TRANSFER_SUCCESS = 'transfer_success';
+export const TRANSFER_FAIL = 'transfer_fail';
+export const SEARCHTERM_CHANGED = 'search_term_changed';

@@ -43,7 +43,6 @@ export const codeChanged = (text) => {
 export const loginUser = ({ email, password }) => {
     return async (dispatch) => {
         dispatch({ type: LOGIN_USER });
-        
         try {
             let user = await firebase.auth().signInWithEmailAndPassword(email, password);
             loginUserSuccess(dispatch, user);
@@ -144,7 +143,7 @@ export const checkUserToken = () => {
         console.log('checkusertoken');
         let token = await AsyncStorage.getItem('auth_token');
         if (token) {
-            console.log('tokes get');
+            console.log(token);
             try {
                 let user = await firebase.auth().signInWithCustomToken(token);
                 loginUserSuccess(dispatch, user);

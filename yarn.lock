@@ -3568,6 +3568,10 @@ idx@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/idx/-/idx-2.2.0.tgz#8544749f9faba6409822b5d9488ba5bc77b8fbfe"
 
+ignore-warnings@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ignore-warnings/-/ignore-warnings-0.1.0.tgz#0ce90ed2f745aef3254529daa0c4175dc01d076d"
+
 ignore@^3.2.0:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.7.tgz#612289bfb3c220e186a58118618d5be8c1bab021"
@@ -6096,12 +6100,18 @@ react-native-gesture-handler@1.0.0-alpha.39:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-"react-native-highlight-words@git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#master":
+"react-native-highlight-words@git+https://github.com/fattahmuhyiddeen/react-native-highlight-words#master":
   version "1.0.1"
-  resolved "git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#6f44d3e95d813d351d07bbadea0001b326a7b86e"
+  resolved "git+https://github.com/fattahmuhyiddeen/react-native-highlight-words#6f44d3e95d813d351d07bbadea0001b326a7b86e"
   dependencies:
     highlight-words-core "^1.0.3"
     prop-types "^15.5.7"
+
+react-native-ignore-warnings@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-ignore-warnings/-/react-native-ignore-warnings-0.1.1.tgz#3b6fb09d0e8f7917606fe8e18c6b1e28fafa044e"
+  dependencies:
+    ignore-warnings "0.1.0"
 
 react-native-iphone-x-helper@^1.0.1:
   version "1.0.2"
@@ -6174,6 +6184,12 @@ react-native-tab-view@^0.0.70:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.70.tgz#1dd2ded32acd0cb6bfef38d26e53675db733b37b"
   dependencies:
     prop-types "^15.5.10"
+
+react-native-toaster@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-toaster/-/react-native-toaster-1.2.0.tgz#466b091d4016f5dafbcba6f85b8d647fd507485f"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-vector-icons@4.2.0:
   version "4.2.0"

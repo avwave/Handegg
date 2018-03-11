@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import ignoreWarnings from 'react-native-ignore-warnings';
 
 import firebase from 'firebase';
 import reducers from './src/reducers';
@@ -21,6 +22,7 @@ export default class App extends React.Component {
             messagingSenderId: '88056195471'
         };
         firebase.initializeApp(config);
+        ignoreWarnings('Setting a timer');
     }
     
     render() {
