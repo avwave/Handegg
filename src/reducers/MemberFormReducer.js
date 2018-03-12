@@ -6,6 +6,8 @@ const INITIAL_STATE = {
     stats1: '',
     stats2: '',
     stats3: '',
+    stats4: '',
+    notes: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

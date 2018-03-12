@@ -19,19 +19,33 @@ class MemberForm extends Component {
                     onChangeText={value => this.props.memberUpdate({ prop: 'position', value })}
                 />
                 <LabelInput
-                    label="Stats1"
+                    label="Weight"
+                    keyboardType="numeric"
                     value={this.props.stats1}
                     onChangeText={value => this.props.memberUpdate({ prop: 'stats1', value })}
                 />
                 <LabelInput
-                    label="Stats2"
+                    label="Height"
+                    keyboardType="numeric"
                     value={this.props.stats2}
                     onChangeText={value => this.props.memberUpdate({ prop: 'stats2', value })}
                 />
                 <LabelInput
-                    label="Stats3"
+                    label="Speed"
+                    keyboardType="numeric"
                     value={this.props.stats3}
                     onChangeText={value => this.props.memberUpdate({ prop: 'stats3', value })}
+                />
+                <LabelInput
+                    label="Skill"
+                    keyboardType="numeric"
+                    value={this.props.stats4}
+                    onChangeText={value => this.props.memberUpdate({ prop: 'stats4', value })}
+                />
+                <LabelInput
+                    label="Notes"
+                    value={this.props.notes}
+                    onChangeText={value => this.props.memberUpdate({ prop: 'notes', value })}
                 />
             </View>
         );
@@ -39,8 +53,8 @@ class MemberForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { name, position, stats1, stats2, stats3 } = state.memberForm;
-    return { name, position, stats1, stats2, stats3 };
+    const { name, position, stats1, stats2, stats3, stats4, notes } = state.memberForm;
+    return { name, position, stats1, stats2, stats3, stats4, notes };
 };
 
 export default connect(mapStateToProps, { memberUpdate })(MemberForm);

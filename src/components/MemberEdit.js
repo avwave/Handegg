@@ -15,8 +15,8 @@ class MemberEdit extends Component {
     }
 
     onButtonPress = () => {
-        const { name, position, stats1, stats2, stats3 } = this.props;
-        this.props.memberSave({ name, position, stats1, stats2, stats3, uid: this.props.member.uid });
+        const { name, position, stats1, stats2, stats3, stats4, notes } = this.props;
+        this.props.memberSave({ name, position, stats1, stats2, stats3, stats4, notes, uid: this.props.member.uid });
     }
     
     onTransferPress = () => {
@@ -51,8 +51,8 @@ class MemberEdit extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { name, position, stats1, stats2, stats3 } = state.memberForm;
-    return { name, position, stats1, stats2, stats3 };
+    const { name, position, stats1, stats2, stats3, stats4, notes } = state.memberForm;
+    return { name, position, stats1, stats2, stats3, stats4, notes };
 };
 
 export default connect(mapStateToProps, {

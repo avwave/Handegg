@@ -7,8 +7,8 @@ import MemberForm from './MemberForm';
 
 class MemberCreate extends Component {
     onButtonPress() {
-        const { name, position, stats1, stats2, stats3 } = this.props;
-        this.props.memberCreate({ name, position, stats1, stats2, stats3 });
+        const { name, position, stats1, stats2, stats3, stats4, notes } = this.props;
+        this.props.memberCreate({ name, position, stats1, stats2, stats3, stats4, notes });
     }
     
     render() {
@@ -31,8 +31,8 @@ class MemberCreate extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { name, position, stats1, stats2, stats3 } = state.memberForm;
-    return { name, position, stats1, stats2, stats3 };
+    const { name, position, stats1, stats2, stats3, stats4, notes } = state.memberForm;
+    return { name, position, stats1, stats2, stats3, stats4, notes };
 };
 
 export default connect(mapStateToProps, {

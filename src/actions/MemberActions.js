@@ -9,7 +9,7 @@ export const memberUpdate = ({ prop, value }) => {
     };
 };
 
-export const memberCreate = ({ name, position, stats1, stats2, stats3 }) => {
+export const memberCreate = ({ name, position, stats1, stats2, stats3, stats4, notes }) => {
     const { currentUser } = firebase.auth();
 
     return async (dispatch) => {
@@ -20,6 +20,8 @@ export const memberCreate = ({ name, position, stats1, stats2, stats3 }) => {
                 stats1,
                 stats2,
                 stats3,
+                stats4,
+                notes,
                 creatorID: currentUser.uid,
                 createdOn: firebase.database.ServerValue.TIMESTAMP
             });
@@ -30,7 +32,7 @@ export const memberCreate = ({ name, position, stats1, stats2, stats3 }) => {
     };
 };
 
-export const memberSave = ({ name, position, stats1, stats2, stats3, uid }) => {
+export const memberSave = ({ name, position, stats1, stats2, stats3, stats4, notes, uid }) => {
     const { currentUser } = firebase.auth();
 
     return async (dispatch) => {
@@ -41,6 +43,8 @@ export const memberSave = ({ name, position, stats1, stats2, stats3, uid }) => {
                 stats1,
                 stats2,
                 stats3,
+                stats4,
+                notes,
                 currentOwner: currentUser.uid,
                 modifiedOn: firebase.database.ServerValue.TIMESTAMP
             });
