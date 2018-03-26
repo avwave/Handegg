@@ -1,4 +1,4 @@
-## HOOK
+
 
 ## Quickstart
 `yarn install`
